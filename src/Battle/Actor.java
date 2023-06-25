@@ -1,4 +1,4 @@
-package Logic;
+package Battle;
 
 public interface Actor {
     boolean attack(Entity foe) throws IllegalStateException;

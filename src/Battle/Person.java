@@ -3,27 +3,45 @@ package Battle;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Entity {
+public abstract class Person implements Actor {
     protected String name;
     protected Integer sanity;
     protected Integer strengh, resistence, agility;
 
-    protected List<Action> actions;
+    protected List<Ability> abilities;
+    protected List<Item> consumableItems;
+    protected List<Item> equipableItems;
 
-    public Entity(String name, Integer sanity, Integer strengh, Integer resistence, Integer agility) throws IllegalArgumentException {
+    public Person(String name, Integer sanity, Integer strengh, Integer resistence, Integer agility) throws IllegalArgumentException {
         setName(name);
         setSanity(sanity);
         setStrengh(strengh);
         setResistence(resistence);
         setAgility(agility);
-        actions = new ArrayList<>();
+        abilities = new ArrayList<>();
     }
+
+    public List<Ability> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(List<Ability> abilities) throws IllegalArgumentException {
+        if (abilities == null)
+            throw new IllegalArgumentException("Abilities list is null");
+        this.abilities = abilities;
+    }
+
+//    public void setItems(List<Item> items) {
+//        if (items == null)
+//            throw new IllegalArgumentException("Items list is null");
+//        this.items = items;
+//    }
 
     public Integer getSanity() {
         return sanity;
     }
 
-    public Entity setSanity(Integer sanity) throws IllegalArgumentException  {
+    public Person setSanity(Integer sanity) throws IllegalArgumentException  {
         if (sanity < 0)
             throw new IllegalArgumentException("Sanity is bellow zero");
         this.sanity = sanity;
@@ -44,7 +62,7 @@ public abstract class Entity {
         return name;
     }
 
-    public Entity setName(String name) throws IllegalArgumentException {
+    public Person setName(String name) throws IllegalArgumentException {
         if (name.isEmpty())
             throw new IllegalArgumentException("Name is empty");
         this.name = name;
@@ -55,7 +73,7 @@ public abstract class Entity {
         return strengh;
     }
 
-    public Entity setStrengh(Integer strengh) throws IllegalArgumentException  {
+    public Person setStrengh(Integer strengh) throws IllegalArgumentException  {
         if (strengh < 0)
             throw new IllegalArgumentException("Strengh is bellow zero");
         this.strengh = strengh;
@@ -66,7 +84,7 @@ public abstract class Entity {
         return resistence;
     }
 
-    public Entity setResistence(Integer resistence) throws IllegalArgumentException  {
+    public Person setResistence(Integer resistence) throws IllegalArgumentException  {
         if (resistence < 0)
             throw new IllegalArgumentException("Resistence is bellow zero");
         this.resistence = resistence;
@@ -77,7 +95,7 @@ public abstract class Entity {
         return agility;
     }
 
-    public Entity setAgility(Integer agility) throws IllegalArgumentException {
+    public Person setAgility(Integer agility) throws IllegalArgumentException {
         if (agility < 0)
             throw new IllegalArgumentException("Agility is bellow zero");
         this.agility = agility;

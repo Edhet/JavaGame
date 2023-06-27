@@ -1,7 +1,7 @@
 package Battle;
 
 public interface Actor {
-    boolean attack(Entity foe) throws IllegalStateException;
+    boolean attack(Ability ability, Person foe) throws IllegalStateException;
     boolean useItem(Item item) throws IllegalStateException;
 
 }

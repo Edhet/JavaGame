@@ -3,14 +3,11 @@ package Battle;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Person implements Actor {
+public abstract class Person implements Fighter {
     protected String name;
     protected Integer sanity;
     protected Integer strengh, resistence, agility;
-
-    protected List<Ability> abilities;
-    protected List<Item> consumableItems;
-    protected List<Item> equipableItems;
+    protected List<Abilities> abilities;
 
     public Person(String name, Integer sanity, Integer strengh, Integer resistence, Integer agility) throws IllegalArgumentException {
         setName(name);
@@ -21,21 +18,27 @@ public abstract class Person implements Actor {
         abilities = new ArrayList<>();
     }
 
-    public List<Ability> getAbilities() {
+    // TODO: aprimorar a forma como os atributos interagem com o ataque
+    @Override
+    public void useAbility(Abilities ability, Person target) throws IllegalStateException {
+        if (!hasAbility(ability, this.abilities))
+            throw new IllegalStateException("Person doesn't have the "+ability.name()+" ability");
+
+        int damage = (ability.DAMAGE + this.strengh) - target.getResistence();
+        target.reduceSanity(damage);
+        this.sanity -= ability.COST;
+    }
+
+    @Override
+    public void addAbility(Abilities ability) throws IllegalStateException {
+        if (hasAbility(ability, this.abilities))
+            throw new IllegalStateException("Person already has "+ability.name()+" ability");
+        this.abilities.add(ability);
+    }
+
+    public List<Abilities> getAbilities() {
         return abilities;
     }
-
-    public void setAbilities(List<Ability> abilities) throws IllegalArgumentException {
-        if (abilities == null)
-            throw new IllegalArgumentException("Abilities list is null");
-        this.abilities = abilities;
-    }
-
-//    public void setItems(List<Item> items) {
-//        if (items == null)
-//            throw new IllegalArgumentException("Items list is null");
-//        this.items = items;
-//    }
 
     public Integer getSanity() {
         return sanity;

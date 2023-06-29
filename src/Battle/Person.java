@@ -53,7 +53,7 @@ public abstract class Person implements Fighter {
 
     public void reduceSanity(int amount) throws IllegalStateException {
         if (this.sanity <= 0)
-            throw new IllegalStateException("Sanity is bellow/equal to zero");
+            throw new IllegalStateException("Sanity is bellow/equal zero");
         this.sanity -= amount;
     }
 

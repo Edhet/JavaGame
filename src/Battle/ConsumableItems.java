@@ -17,6 +17,10 @@ public enum ConsumableItems {
         return amount;
     }
 
+    public void addItem(Integer amount) throws IllegalStateException {
+        this.amount += amount;
+    }
+
     public void consumeItem() throws IllegalStateException {
         if (this.amount <= 0)
             throw new IllegalStateException(this.NAME +" amount is below/equal to zero");

@@ -2,18 +2,17 @@ package Battle;
 
 import Extra.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Hero extends Person implements Player {
+public class Playable extends Person implements Inventory {
     protected List<ConsumableItems> consumableItems;
     protected List<EquipableItems> equipableItems;
 
-    public Hero(String name, String story, Integer sanity, Integer strengh, Integer resistence, Integer agility, List<Abilities> abilities, List<ConsumableItems> consumableItems, List<EquipableItems> equipableItems) throws IllegalArgumentException {
-        super(name, story, sanity, strengh, resistence, agility, abilities);
-        this.consumableItems  = (consumableItems == null) ? new ArrayList<>() : consumableItems;
-        this.equipableItems = (equipableItems == null) ? new ArrayList<>() : equipableItems;
+    public Playable(String name, String story, Integer sanity, Attributes attributes, List<Abilities> abilities, List<ConsumableItems> consumableItems, List<EquipableItems> equipableItems) throws IllegalArgumentException {
+        super(name, story, sanity, attributes, abilities);
+        this.consumableItems  = consumableItems;
+        this.equipableItems = equipableItems;
     }
 
     @Override

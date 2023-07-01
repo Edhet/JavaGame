@@ -1,10 +1,8 @@
 package Battle;
 
-import Extra.Utils;
-
 import java.util.List;
 
-public interface Player {
+public interface Inventory {
     void equipItem(EquipableItems item) throws IllegalStateException;
 
     boolean hasItem(EquipableItems item);

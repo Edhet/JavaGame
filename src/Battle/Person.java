@@ -11,11 +11,11 @@ public abstract class Person implements Fighter {
     protected Attributes attributes;
     protected List<Abilities> abilities;
 
-    public Person(String name, String story, int sanity, int strengh, int resistence, int agility, List<Abilities> abilities) throws IllegalArgumentException {
+    public Person(String name, String story, int sanity, Attributes attributes, List<Abilities> abilities) throws IllegalArgumentException {
         setName(name);
         setStory(story);
         setSanity(sanity);
-        this.attributes = new Attributes(strengh, resistence, agility);
+        this.attributes = attributes;
         this.abilities = (abilities == null) ? new ArrayList<>() : abilities;
     }
 

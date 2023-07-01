@@ -7,11 +7,15 @@ public final class Utils {
     private Utils() {
     }
 
-    public static <T> Optional<T> getFromList(T searchParam, List<T> list) {
-        for (T val : list)
-            if (val.equals(searchParam))
-                return Optional.of(val);
+    public static <T> Optional<T> getFromList(T searchObj, List<T> list) {
+        for (T obj : list)
+            if (obj.equals(searchObj))
+                return Optional.of(obj);
         return Optional.empty();
+    }
+
+    public static <T> boolean isOnList(T searchObj, List<T> list) {
+        return getFromList(searchObj, list).isPresent();
     }
 
     public static <T extends Comparable<T>> T clamp(T value, T min, T max) {

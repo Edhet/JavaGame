@@ -1,41 +1,50 @@
 package Battle;
 
+import Extra.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Person implements Fighter {
+    protected final int MIN_ATTRIBUTE_VAL = 0, MAX_ATTRIBUTE_VAL = 10;
     protected String name;
     protected Integer sanity;
     protected Integer strengh, resistence, agility;
     protected List<Abilities> abilities;
 
-    public Person(String name, Integer sanity, Integer strengh, Integer resistence, Integer agility) throws IllegalArgumentException {
+    public Person(String name, int sanity, int strengh, int resistence, int agility, List<Abilities> abilities) throws IllegalArgumentException {
         setName(name);
         setSanity(sanity);
         setStrengh(strengh);
         setResistence(resistence);
         setAgility(agility);
-        abilities = new ArrayList<>();
+        this.abilities = (abilities == null) ? new ArrayList<>() : abilities;
     }
 
     // TODO: aprimorar a forma como os atributos interagem com o ataque
     @Override
     public void useAbility(Abilities ability, Person target) throws IllegalStateException {
-        if (!hasAbility(ability, this.abilities))
+        if (!hasAbility(ability))
             throw new IllegalStateException("Person doesn't have the "+ability.name()+" ability");
 
         int damage = (ability.DAMAGE + this.strengh) - target.getResistence();
-        target.reduceSanity(damage);
+        target.changeSanity(-damage);
         this.sanity -= ability.COST;
     }
 
     @Override
     public void addAbility(Abilities ability) throws IllegalStateException {
-        if (hasAbility(ability, this.abilities))
+        if (hasAbility(ability))
             throw new IllegalStateException("Person already has "+ability.name()+" ability");
         this.abilities.add(ability);
     }
 
+    @Override
+    public boolean hasAbility(Abilities ability) {
+        return Utils.isOnList(ability, this.abilities);
+    }
+
+    @Override
     public List<Abilities> getAbilities() {
         return abilities;
     }
@@ -44,21 +53,17 @@ public abstract class Person implements Fighter {
         return sanity;
     }
 
-    public Person setSanity(Integer sanity) throws IllegalArgumentException  {
+    public Person setSanity(int sanity) throws IllegalArgumentException  {
         if (sanity < 0)
             throw new IllegalArgumentException("Sanity is bellow zero");
         this.sanity = sanity;
         return this;
     }
 
-    public void reduceSanity(int amount) throws IllegalStateException {
-        if (this.sanity <= 0)
-            throw new IllegalStateException("Sanity is bellow/equal zero");
-        this.sanity -= amount;
-    }
-
-    public void increaseSanity(int amount) {
+    public void changeSanity(int amount) throws IllegalStateException {
         this.sanity += amount;
+        if (this.sanity < 0)
+            throw new IllegalStateException("Sanity is bellow zero");
     }
 
     public String getName() {
@@ -76,10 +81,8 @@ public abstract class Person implements Fighter {
         return strengh;
     }
 
-    public Person setStrengh(Integer strengh) throws IllegalArgumentException  {
-        if (strengh < 0)
-            throw new IllegalArgumentException("Strengh is bellow zero");
-        this.strengh = strengh;
+    public Person setStrengh(int strengh) {
+        this.strengh = Utils.clamp(strengh,  MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
         return this;
     }
 
@@ -87,10 +90,8 @@ public abstract class Person implements Fighter {
         return resistence;
     }
 
-    public Person setResistence(Integer resistence) throws IllegalArgumentException  {
-        if (resistence < 0)
-            throw new IllegalArgumentException("Resistence is bellow zero");
-        this.resistence = resistence;
+    public Person setResistence(int resistence) {
+        this.resistence = Utils.clamp(resistence, MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
         return this;
     }
 
@@ -98,10 +99,8 @@ public abstract class Person implements Fighter {
         return agility;
     }
 
-    public Person setAgility(Integer agility) throws IllegalArgumentException {
-        if (agility < 0)
-            throw new IllegalArgumentException("Agility is bellow zero");
-        this.agility = agility;
+    public Person setAgility(int agility) {
+        this.agility = Utils.clamp(agility, MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
         return this;
     }
 }

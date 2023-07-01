@@ -1,16 +1,14 @@
 package Battle;
 
 public enum EquipableItems {
-    SHIELD("Escudo", "", 2, Attributes.RESISTENCE);
+    SHIELD("Escudo", "", new Attributes(0, 2, 0));
 
     public final String NAME, DESCRIPTION;
-    public final Integer MODIFIER;
-    public final Attributes ATTRIBUTE;
+    public final Attributes MODIFIERS;
 
-    EquipableItems(String name, String description, Integer modifier, Attributes attribute) {
+    EquipableItems(String name, String description, Attributes modifiers) {
         this.NAME = name;
         this.DESCRIPTION = description;
-        this.MODIFIER = modifier;
-        this.ATTRIBUTE = attribute;
+        this.MODIFIERS = modifiers;
     }
 }

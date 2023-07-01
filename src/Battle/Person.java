@@ -6,18 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Person implements Fighter {
-    protected final int MIN_ATTRIBUTE_VAL = 0, MAX_ATTRIBUTE_VAL = 10;
-    protected String name;
+    protected String name, story;
     protected Integer sanity;
-    protected Integer strengh, resistence, agility;
+    protected Attributes attributes;
     protected List<Abilities> abilities;
 
-    public Person(String name, int sanity, int strengh, int resistence, int agility, List<Abilities> abilities) throws IllegalArgumentException {
+    public Person(String name, String story, int sanity, int strengh, int resistence, int agility, List<Abilities> abilities) throws IllegalArgumentException {
         setName(name);
+        setStory(story);
         setSanity(sanity);
-        setStrengh(strengh);
-        setResistence(resistence);
-        setAgility(agility);
+        this.attributes = new Attributes(strengh, resistence, agility);
         this.abilities = (abilities == null) ? new ArrayList<>() : abilities;
     }
 
@@ -27,7 +25,7 @@ public abstract class Person implements Fighter {
         if (!hasAbility(ability))
             throw new IllegalStateException("Person doesn't have the "+ability.name()+" ability");
 
-        int damage = (ability.DAMAGE + this.strengh) - target.getResistence();
+        int damage = (ability.DAMAGE + this.attributes.getStrengh()) - target.attributes.getResistence();
         target.changeSanity(-damage);
         this.sanity -= ability.COST;
     }
@@ -77,30 +75,18 @@ public abstract class Person implements Fighter {
         return this;
     }
 
-    public Integer getStrengh() {
-        return strengh;
+    public String getStory() {
+        return story;
     }
 
-    public Person setStrengh(int strengh) {
-        this.strengh = Utils.clamp(strengh,  MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
+    public Person setStory(String story) throws IllegalArgumentException {
+        if (story.isEmpty())
+            throw new IllegalArgumentException("Story is empty");
+        this.story = story;
         return this;
     }
 
-    public Integer getResistence() {
-        return resistence;
-    }
-
-    public Person setResistence(int resistence) {
-        this.resistence = Utils.clamp(resistence, MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
-        return this;
-    }
-
-    public Integer getAgility() {
-        return agility;
-    }
-
-    public Person setAgility(int agility) {
-        this.agility = Utils.clamp(agility, MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
-        return this;
+    public Attributes getAttributes() {
+        return attributes;
     }
 }

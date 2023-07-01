@@ -10,8 +10,8 @@ public class Hero extends Person implements Player {
     protected List<ConsumableItems> consumableItems;
     protected List<EquipableItems> equipableItems;
 
-    public Hero(String name, Integer sanity, Integer strengh, Integer resistence, Integer agility, List<Abilities> abilities, List<ConsumableItems> consumableItems, List<EquipableItems> equipableItems) throws IllegalArgumentException {
-        super(name, sanity, strengh, resistence, agility, abilities);
+    public Hero(String name, String story, Integer sanity, Integer strengh, Integer resistence, Integer agility, List<Abilities> abilities, List<ConsumableItems> consumableItems, List<EquipableItems> equipableItems) throws IllegalArgumentException {
+        super(name, story, sanity, strengh, resistence, agility, abilities);
         this.consumableItems  = (consumableItems == null) ? new ArrayList<>() : consumableItems;
         this.equipableItems = (equipableItems == null) ? new ArrayList<>() : equipableItems;
     }
@@ -22,11 +22,7 @@ public class Hero extends Person implements Player {
             throw new IllegalStateException("Hero already has "+item.name()+" equiped");
 
         this.equipableItems.add(item);
-        switch (item.ATTRIBUTE) {
-            case STRENTGH -> this.strengh = Utils.clamp(this.strengh + item.MODIFIER, MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
-            case RESISTENCE -> this.resistence = Utils.clamp(this.resistence + item.MODIFIER, MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
-            case AGILITY -> this.agility = Utils.clamp(this.agility + item.MODIFIER, MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
-        }
+        this.attributes.applyItemEffect(item);
     }
 
     @Override

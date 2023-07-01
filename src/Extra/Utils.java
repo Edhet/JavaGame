@@ -21,9 +21,15 @@ public final class Utils {
     public static <T extends Comparable<T>> T clamp(T value, T min, T max) {
         if (value.compareTo(min) < 0)
             return min;
-        else if (value.compareTo(min) > 0)
+        else if (value.compareTo(max) > 0)
             return max;
         else
             return value;
+    }
+
+    public static <T extends Comparable<T>> T lowerBound(T value, T minBound) {
+        if (value.compareTo(minBound) < 0)
+            return minBound;
+        return value;
     }
 }

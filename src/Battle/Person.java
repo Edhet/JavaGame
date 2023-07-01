@@ -23,9 +23,9 @@ public abstract class Person implements Fighter {
     @Override
     public void useAbility(Abilities ability, Person target) throws IllegalStateException {
         if (!hasAbility(ability))
-            throw new IllegalStateException("Person doesn't have the "+ability.name()+" ability");
+            throw new IllegalStateException("Person doesn't have the " + ability.name() + " ability");
 
-        int damage = (ability.DAMAGE + this.attributes.getStrengh()) - target.attributes.getResistence();
+        int damage = Utils.lowerBound(ability.DAMAGE + this.attributes.getStrengh() - target.attributes.getResistence(), 0);
         target.changeSanity(-damage);
         this.sanity -= ability.COST;
     }
@@ -33,7 +33,7 @@ public abstract class Person implements Fighter {
     @Override
     public void addAbility(Abilities ability) throws IllegalStateException {
         if (hasAbility(ability))
-            throw new IllegalStateException("Person already has "+ability.name()+" ability");
+            throw new IllegalStateException("Person already has " + ability.name() + " ability");
         this.abilities.add(ability);
     }
 
@@ -51,7 +51,7 @@ public abstract class Person implements Fighter {
         return sanity;
     }
 
-    public Person setSanity(int sanity) throws IllegalArgumentException  {
+    public Person setSanity(int sanity) throws IllegalArgumentException {
         if (sanity < 0)
             throw new IllegalArgumentException("Sanity is bellow zero");
         this.sanity = sanity;

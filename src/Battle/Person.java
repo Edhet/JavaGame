@@ -4,6 +4,7 @@ import Battle.Constants.Abilities;
 import Extra.Utils;
 
 import java.util.List;
+import java.util.Random;
 
 public abstract class Person implements Fighter {
     protected String name, story;
@@ -19,11 +20,14 @@ public abstract class Person implements Fighter {
         this.abilities = abilities;
     }
 
-    // TODO: aprimorar a forma como os atributos interagem com o ataque
     @Override
     public void useAbility(Abilities ability, Person target) throws IllegalStateException {
         if (!hasAbility(ability))
             throw new IllegalStateException("Person doesn't have the " + ability.name() + " ability");
+
+        int acurracy = new Random().nextInt(0, 10) + this.attributes.getAgility() / 2;
+        if (acurracy <= target.attributes.getAgility())
+            return;
 
         int damage = Utils.lowerBound(ability.DAMAGE + this.attributes.getStrengh() - target.attributes.getResistence(), 0);
         target.changeSanity(-damage);

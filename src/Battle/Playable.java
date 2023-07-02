@@ -3,13 +3,15 @@ package Battle;
 import Extra.Utils;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.Random;
 
 public class Playable extends Person implements Inventory {
     protected List<ConsumableItems> consumableItems;
     protected List<EquipableItems> equipableItems;
 
-    public Playable(String name, String story, Integer sanity, Attributes attributes, List<Abilities> abilities, List<ConsumableItems> consumableItems, List<EquipableItems> equipableItems) throws IllegalArgumentException {
+    Playable(String name, String story, Integer sanity, Attributes attributes, List<Abilities> abilities, List<ConsumableItems> consumableItems, List<EquipableItems> equipableItems) throws IllegalArgumentException {
         super(name, story, sanity, attributes, abilities);
         this.consumableItems  = consumableItems;
         this.equipableItems = equipableItems;
@@ -43,15 +45,13 @@ public class Playable extends Person implements Inventory {
             optionalItem.get().addItem(amount);
     }
 
-    // TODO: Checar se o efeito do item e nulo e adicionar uma regra especifica para ele (efeito aleatorio por exemplo)
     @Override
     public void useItem(ConsumableItems item) throws IllegalStateException {
         Optional<ConsumableItems> optionalItem = Utils.getFromList(item, this.consumableItems);
         if (optionalItem.isEmpty())
             throw new IllegalStateException("There is no such item on hero inventory");
 
-        if (item.EFFECT != null)
-            changeSanity(item.EFFECT);
+        changeSanity(Objects.requireNonNullElseGet(item.EFFECT, () -> new Random().nextInt(-5, 5)));
         optionalItem.get().consumeItem();
     }
 

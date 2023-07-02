@@ -18,7 +18,7 @@ public class Playable extends Person implements Inventory {
     @Override
     public void equipItem(EquipableItems item) throws IllegalStateException {
         if (hasItem(item))
-            throw new IllegalStateException("Hero already has "+item.name()+" equiped");
+            throw new IllegalStateException("Player already has "+item.name()+" equiped");
 
         this.equipableItems.add(item);
         this.attributes.applyItemEffect(item);

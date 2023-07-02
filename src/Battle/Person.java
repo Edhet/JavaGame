@@ -2,7 +2,6 @@ package Battle;
 
 import Extra.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Person implements Fighter {
@@ -16,7 +15,7 @@ public abstract class Person implements Fighter {
         setStory(story);
         setSanity(sanity);
         this.attributes = attributes;
-        this.abilities = (abilities == null) ? new ArrayList<>() : abilities;
+        this.abilities = abilities;
     }
 
     // TODO: aprimorar a forma como os atributos interagem com o ataque
@@ -47,43 +46,40 @@ public abstract class Person implements Fighter {
         return abilities;
     }
 
+    public boolean isAlive() {
+        return sanity != 0;
+    }
+
     public Integer getSanity() {
         return sanity;
     }
 
-    public Person setSanity(int sanity) throws IllegalArgumentException {
-        if (sanity < 0)
-            throw new IllegalArgumentException("Sanity is bellow zero");
-        this.sanity = sanity;
-        return this;
+    public void setSanity(int sanity) {
+        this.sanity = Utils.lowerBound(sanity,  0);
     }
 
-    public void changeSanity(int amount) throws IllegalStateException {
-        this.sanity += amount;
-        if (this.sanity < 0)
-            throw new IllegalStateException("Sanity is bellow zero");
+    public void changeSanity(int amount) {
+        setSanity(this.sanity += amount);
     }
 
     public String getName() {
         return name;
     }
 
-    public Person setName(String name) throws IllegalArgumentException {
+    public void setName(String name) throws IllegalArgumentException {
         if (name.isEmpty())
             throw new IllegalArgumentException("Name is empty");
         this.name = name;
-        return this;
     }
 
     public String getStory() {
         return story;
     }
 
-    public Person setStory(String story) throws IllegalArgumentException {
+    public void setStory(String story) throws IllegalArgumentException {
         if (story.isEmpty())
             throw new IllegalArgumentException("Story is empty");
         this.story = story;
-        return this;
     }
 
     public Attributes getAttributes() {

@@ -1,4 +1,4 @@
-package Battle;
+package Battle.Constants;
 
 public enum ConsumableItems {
     POTION("Poção de Sanidade", "Uma poção produzida diretamente da Fonte de Ezus, conhecida por produzir as melhores poções do mundo.", 2, 5),

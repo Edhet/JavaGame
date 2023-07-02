@@ -1,5 +1,7 @@
 package Battle;
 
+import Battle.Constants.Characters;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package Battle;
+package Battle.Constants;
 
 public enum Abilities {
     ATTACK("Ataque Básico", "Apenas um ataque básico.", 1, 0),

@@ -1,5 +1,7 @@
 package Battle;
 
+import Battle.Constants.Abilities;
+
 import java.util.List;
 
 public interface Fighter {

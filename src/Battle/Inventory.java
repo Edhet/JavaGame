@@ -1,5 +1,8 @@
 package Battle;
 
+import Battle.Constants.ConsumableItems;
+import Battle.Constants.EquipableItems;
+
 import java.util.List;
 
 public interface Inventory {

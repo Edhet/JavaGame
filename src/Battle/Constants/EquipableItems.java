@@ -1,4 +1,6 @@
-package Battle;
+package Battle.Constants;
+
+import Battle.Attributes;
 
 public enum EquipableItems {
     ARMOR("Armadura Brilhante", "Uma ótima opção para se proteger de intensos ataques.", new Attributes(0, 4, 0)),

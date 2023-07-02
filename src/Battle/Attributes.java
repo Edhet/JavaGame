@@ -1,5 +1,6 @@
 package Battle;
 
+import Battle.Constants.EquipableItems;
 import Extra.Utils;
 
 public class Attributes {

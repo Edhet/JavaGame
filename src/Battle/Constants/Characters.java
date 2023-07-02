@@ -1,4 +1,4 @@
-package Battle;
+package Battle.Constants;
 
 public enum Characters {
     ARIA(true,
@@ -10,12 +10,12 @@ public enum Characters {
             new EquipableItems[]{}
     );
 
-    final boolean IS_PLAYABLE;
-    final String NAME, STORY;
-    final int SANITY, STRENTGH, RESISTENCE, AGILITY;
-    final Abilities[] ABILITIES;
-    final ConsumableItems[] CONSUMABLE_ITEMS;
-    final EquipableItems[] EQUIPABLE_ITEMS;
+    public final boolean IS_PLAYABLE;
+    public final String NAME, STORY;
+    public final int SANITY, STRENTGH, RESISTENCE, AGILITY;
+    public final Abilities[] ABILITIES;
+    public final ConsumableItems[] CONSUMABLE_ITEMS;
+    public final EquipableItems[] EQUIPABLE_ITEMS;
 
     Characters(boolean isPlayable, String name, String story, int sanity, int strengh, int resistence, int agility, Abilities[] abilities, ConsumableItems[] consumableItems, EquipableItems[] equipableItems) {
         this.IS_PLAYABLE = isPlayable;

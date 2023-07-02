@@ -1,5 +1,6 @@
 package Battle;
 
+import Battle.Constants.Abilities;
 import Extra.Utils;
 
 import java.util.List;

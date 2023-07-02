@@ -13,7 +13,7 @@ public final class PersonFactory {
         if (character.IS_PLAYABLE)
             return createPlayableCharacter(character);
         else
-            return null; //TODO: Factory para inimigos
+            return createEnemyCharacter(character);
     }
 
     private static Playable createPlayableCharacter(Characters character) {
@@ -25,6 +25,16 @@ public final class PersonFactory {
                 new ArrayList<>(Arrays.stream(character.ABILITIES).toList()),
                 new ArrayList<>(Arrays.stream(character.CONSUMABLE_ITEMS).toList()),
                 new ArrayList<>(Arrays.stream(character.EQUIPABLE_ITEMS).toList())
+        );
+    }
+
+    private static Enemy createEnemyCharacter(Characters character) {
+        return new Enemy(
+                character.NAME,
+                character.STORY,
+                character.SANITY,
+                new Attributes(character.STRENTGH, character.RESISTENCE, character.AGILITY),
+                new ArrayList<>(Arrays.stream(character.ABILITIES).toList())
         );
     }
 }

@@ -1,14 +1,18 @@
 package Battle;
 
 public enum ConsumableItems {
-    POTION("Pocao de Sanidade", 2, 4);
+    POTION("Poção de Sanidade", "Uma poção produzida diretamente da Fonte de Ezus, conhecida por produzir as melhores poções do mundo.", 2, 5),
+    SONG("Canto de Zeru", "Uma canção escrita por Zeru, famoso poeta da era da Grande Fome, capaz de aumentar, uma única vez, a sanidade do personagem.", 4, 1),
+    RING("Apogeu Anelar", "Um anel brilhante forjado de um material suspeito e não reconhecido capaz de aumentar a sanidade do personagem.", 2, 1),
+    EMPTYBOX("Caixa Vazia", "Embora seja uma caixa e esteja vazia, há a possibilidade de aumentar a sanidade.", null, 100);
 
-    public final String NAME;
+    public final String NAME, DESCRIPTION;
     public final Integer EFFECT;
     private Integer amount;
 
-    ConsumableItems(String name, Integer effect, Integer amount) {
+    ConsumableItems(String name, String description, Integer effect, Integer amount) {
         this.NAME = name;
+        this.DESCRIPTION = description;
         this.EFFECT = effect;
         this.amount = amount;
     }

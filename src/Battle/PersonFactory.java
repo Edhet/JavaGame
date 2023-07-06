@@ -23,8 +23,8 @@ public final class PersonFactory {
                 character.SANITY,
                 new Attributes(character.STRENTGH, character.RESISTENCE, character.AGILITY),
                 new ArrayList<>(Arrays.stream(character.ABILITIES).toList()),
-                new ArrayList<>(Arrays.stream(character.CONSUMABLE_ITEMS).toList()),
-                new ArrayList<>(Arrays.stream(character.EQUIPABLE_ITEMS).toList())
+                new ArrayList<>(),
+                new ArrayList<>()
         );
     }
 

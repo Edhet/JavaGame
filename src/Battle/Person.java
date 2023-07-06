@@ -21,17 +21,18 @@ public abstract class Person implements Fighter {
     }
 
     @Override
-    public void useAbility(Abilities ability, Person target) throws IllegalStateException {
+    public Attack useAbility(Abilities ability, Person target) throws IllegalStateException {
         if (!hasAbility(ability))
             throw new IllegalStateException("Person doesn't have the " + ability.name() + " ability");
 
         int acurracy = new Random().nextInt(0, 10) + this.attributes.getAgility() / 2;
         if (acurracy <= target.attributes.getAgility())
-            return;
+            return Attack.MISS;
 
-        int damage = Utils.lowerBound(ability.DAMAGE + this.attributes.getStrengh() - target.attributes.getResistence(), 0);
+        int damage = Utils.lowerBound((ability.DAMAGE > 0) ? ability.DAMAGE + this.attributes.getStrengh() - target.attributes.getResistence() : 0, 0);
         target.changeSanity(-damage);
         this.sanity -= ability.COST;
+        return Attack.HIT;
     }
 
     @Override
@@ -60,7 +61,7 @@ public abstract class Person implements Fighter {
     }
 
     public void setSanity(int sanity) {
-        this.sanity = Utils.lowerBound(sanity,  0);
+        this.sanity = Utils.lowerBound(sanity, 0);
     }
 
     public void changeSanity(int amount) {

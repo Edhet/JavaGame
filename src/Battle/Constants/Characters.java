@@ -35,7 +35,7 @@ public enum Characters {
             new EquipableItems[]{}
     ),
 
-    LORDGRAF(false, "Lorde Graf", "",
+    LORDGRAF(false, "Lorde Graf", "s",
             10,
             3, 4, 4,
             new Abilities[]{Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.MANIPULATION},

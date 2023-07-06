@@ -54,8 +54,8 @@ public class Enemy extends Person {
         Abilities chosen = null;
         Random random = new Random();
         switch (actionStance) {
-            case BOLD -> chosen = costfullAttacks.get(random.nextInt(0, costfullAttacks.size() - 1));
-            case CAUTELOUS -> chosen = costlessAttacks.get(random.nextInt(0, costlessAttacks.size() - 1));
+            case BOLD -> chosen = costfullAttacks.get(random.nextInt(0, costfullAttacks.size()));
+            case CAUTELOUS -> chosen = costlessAttacks.get(random.nextInt(0, costlessAttacks.size()));
         }
         return chosen;
     }

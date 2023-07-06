@@ -8,9 +8,9 @@ public enum Abilities {
 
     MALICIOUSATTACK("Ataque Malicioso", "Um ataque causado apenas por seres cruéis.", 1, 1),
     BADHEALING("Cicatrização Cruel", "Um miasma escuro capaz de curar monstros terríveis", 0, -3),
-    SHOUT("Thorffy, o Guardião de Sétiah", "Thorffy utiliza de seus gritos para aterrorizar seus inimigos.", 2, 2),
-    FEAR("Zigg, o Lacaio de Graf", "Zigg encontra os medos mais profundos de suas vítimas para fazê-las se renderem.", 3, 3),
-    MANIPULATION("Lorde Graf", "Lorde Graf utiliza de manipulações para acabar com seus oponentes.", 4, 4);
+    SHOUT("Grito", "Thorffy utiliza de seus gritos para aterrorizar seus inimigos.", 2, 2),
+    FEAR("Medo", "Zigg encontra os medos mais profundos de suas vítimas para fazê-las se renderem.", 3, 3),
+    MANIPULATION("Manipulação", "Lorde Graf utiliza de manipulações para acabar com seus oponentes.", 4, 4);
 
     public final String NAME, DESCRIPTION;
     public final Integer DAMAGE, COST;

@@ -16,7 +16,12 @@ public class Attributes {
     public void applyItemEffect(EquipableItems item) {
         setStrengh(this.strengh + item.MODIFIERS.getStrengh());
         setResistence(this.resistence + item.MODIFIERS.getResistence());
-        setAgility(this.agility += item.MODIFIERS.getAgility());
+        setAgility(this.agility + item.MODIFIERS.getAgility());
+    }
+
+    @Override
+    public String toString() {
+        return "Força: "+strengh+" Resistência: "+resistence+" Agilidade: "+agility;
     }
 
     public Integer getStrengh() {
@@ -24,7 +29,7 @@ public class Attributes {
     }
 
     public void setStrengh(int strengh) {
-        this.strengh = Utils.clamp(strengh,  MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
+        this.strengh = Utils.clamp(strengh, MIN_ATTRIBUTE_VAL, MAX_ATTRIBUTE_VAL);
     }
 
     public Integer getResistence() {

@@ -24,6 +24,7 @@ public final class CharacterSelection {
     }
 
     private static void printOption() {
+        System.out.println("Digite o primeiro nome do personagem para escolhê-lo");
         for (Characters character : SELECTABLE_PLAYABLE_CHARACTERS.values()) {
             System.out.printf("""
                     Nome: %s

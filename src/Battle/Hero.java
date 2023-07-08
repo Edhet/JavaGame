@@ -10,11 +10,11 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
-public class Playable extends Person implements Inventory {
+public class Hero extends Person implements Inventory {
     protected List<ConsumableItems> consumableItems;
     protected List<EquipableItems> equipableItems;
 
-    Playable(String name, String story, Integer sanity, Attributes attributes, List<Abilities> abilities, List<ConsumableItems> consumableItems, List<EquipableItems> equipableItems) throws IllegalArgumentException {
+    Hero(String name, String story, Integer sanity, Attributes attributes, List<Abilities> abilities, List<ConsumableItems> consumableItems, List<EquipableItems> equipableItems) throws IllegalArgumentException {
         super(name, story, sanity, attributes, abilities);
         this.consumableItems  = consumableItems;
         this.equipableItems = equipableItems;

@@ -9,11 +9,11 @@ public final class PersonFactory {
     private PersonFactory() {
     }
 
-    public static Person createPerson(Characters character) {
+    public static <T extends Person> T createPerson(Characters character) {
         if (character.IS_PLAYABLE)
-            return createPlayableCharacter(character);
+            return (T) createPlayableCharacter(character);
         else
-            return createEnemyCharacter(character);
+            return (T) createEnemyCharacter(character);
     }
 
     private static Playable createPlayableCharacter(Characters character) {

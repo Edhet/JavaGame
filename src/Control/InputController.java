@@ -29,4 +29,22 @@ public final class InputController {
         return result.get();
     }
 
+    public static <T> int selectValidIndex(List<T> options, String customError) {
+        String errorMessage = (customError == null) ? DEFAULT_ERROR : customError;
+        int userInput = -1;
+        boolean validIndex = false;
+
+        do {
+            try {
+                userInput = Integer.parseInt(SCANNER.nextLine().trim().toUpperCase());
+                validIndex = userInput >= 0 && userInput <= options.size() - 1;
+            } catch (NumberFormatException ignored) { }
+
+            if (!validIndex)
+                System.out.println(errorMessage);
+        } while (!validIndex);
+
+        return userInput;
+    }
+
 }

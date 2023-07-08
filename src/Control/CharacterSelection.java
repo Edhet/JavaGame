@@ -7,7 +7,7 @@ import Battle.PersonFactory;
 import java.util.*;
 
 public final class CharacterSelection {
-    public static final Map<String, Characters> SELECTABLE_PLAYABLE_CHARACTERS = new HashMap<>(Map.of(
+    private static final Map<String, Characters> SELECTABLE_PLAYABLE_CHARACTERS = new HashMap<>(Map.of(
             "ARIA", Characters.ARIA,
             "DAMIEN", Characters.DAMIEN
     ));
@@ -16,14 +16,14 @@ public final class CharacterSelection {
     }
 
     public static Hero selectCharacter() {
-        printOption();
+        printOptions();
         Characters selected = SELECTABLE_PLAYABLE_CHARACTERS.get(
                 InputController.getValidInput(SELECTABLE_PLAYABLE_CHARACTERS.keySet().stream().toList(), null)
         );
         return PersonFactory.createPerson(selected);
     }
 
-    private static void printOption() {
+    private static void printOptions() {
         System.out.println("Digite o primeiro nome do personagem para escolhê-lo");
         for (Characters character : SELECTABLE_PLAYABLE_CHARACTERS.values()) {
             System.out.printf("""

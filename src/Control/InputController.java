@@ -29,7 +29,7 @@ public final class InputController {
         return result.get();
     }
 
-    public static <T> int selectValidIndex(List<T> options, String customError) {
+    public static int selectValidIndex(List<?> options, String customError) {
         String errorMessage = (customError == null) ? DEFAULT_ERROR : customError;
         int userInput = -1;
         boolean validIndex = false;

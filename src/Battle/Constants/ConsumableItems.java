@@ -37,4 +37,10 @@ public enum ConsumableItems {
         this.amount = amount;
         return this;
     }
+
+
+    @Override
+    public String toString() {
+        return NAME;
+    }
 }

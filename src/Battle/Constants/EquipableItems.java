@@ -17,4 +17,10 @@ public enum EquipableItems {
         this.DESCRIPTION = description;
         this.MODIFIERS = modifiers;
     }
+
+
+    @Override
+    public String toString() {
+        return NAME;
+    }
 }

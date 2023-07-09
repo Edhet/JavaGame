@@ -12,7 +12,7 @@ public interface Inventory {
 
     List<EquipableItems> getEquipableItems();
 
-    void addItem(ConsumableItems item, Integer amount);
+    void addItem(ConsumableItems item);
 
     void useItem(ConsumableItems item) throws IllegalStateException;
 

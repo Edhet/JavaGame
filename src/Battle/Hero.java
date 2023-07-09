@@ -40,12 +40,12 @@ public class Hero extends Person implements Inventory {
     }
 
     @Override
-    public void addItem(ConsumableItems item, Integer amount) {
+    public void addItem(ConsumableItems item) {
         Optional<ConsumableItems> optionalItem = Utils.getFromList(item, this.consumableItems);
         if (optionalItem.isEmpty())
             consumableItems.add(item);
         else
-            optionalItem.get().addItem(amount);
+            optionalItem.get().addItem(item.DEFAULT_ADD_AMOUNT);
     }
 
     @Override

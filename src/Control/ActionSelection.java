@@ -1,6 +1,5 @@
 package Control;
 
-import Extra.Utils;
 import Model.Constants.Abilities;
 import Model.Constants.ConsumableItems;
 import Model.Enemy;
@@ -20,14 +19,30 @@ public final class ActionSelection {
     }
 
     public static Abilities chooseAbility(Hero player) {
-        Utils.printListWithIndex(player.getAbilities());
+        printAbilities(player.getAbilities());
         return player.getAbilities().get(InputController.selectValidIndex(player.getAbilities(), null));
     }
 
 
+    private static void printAbilities(List<Abilities> list) {
+        int index = 0;
+        for (Abilities ability : list) {
+            System.out.printf("%d\t%s (%s) Dano: %d Custo: %d\n", index, ability, ability.DESCRIPTION, ability.DAMAGE, ability.COST);
+            index++;
+        }
+    }
+
     public static ConsumableItems chooseItem(Hero player) {
-        Utils.printListWithIndex(player.getConsumableItems());
+        printItems(player.getConsumableItems());
         return player.getConsumableItems().get(InputController.selectValidIndex(player.getConsumableItems(), null));
+    }
+
+    private static void printItems(List<ConsumableItems> list) {
+        int index = 0;
+        for (ConsumableItems item : list) {
+            System.out.printf("%d\t%s (%s) Sanidade: %d [%d]\n", index, item, item.DESCRIPTION, item.EFFECT, item.getAmount());
+            index++;
+        }
     }
 
     public static void printPersonInformation(Hero player, Enemy enemy) {
@@ -37,18 +52,17 @@ public final class ActionSelection {
                 
                 """, enemy.getName(), enemy.getSanity(), enemy.getAttributes()
         );
-        System.out.println();
         System.out.printf("""
                 %s \tSanidade: %d
                 %s
                 Abilidades: %s
                 Equipamentos: %s
                 Items: %s
+                
                 """, player.getName(), player.getSanity(), player.getAttributes(),
                 player.getAbilities().stream().map(ability -> ability.NAME).toList(),
                 player.getEquipableItems().stream().map(item -> item.NAME).toList(),
                 player.getConsumableItems().stream().map(items -> items.NAME).toList()
         );
-        System.out.println();
     }
 }

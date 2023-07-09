@@ -1,6 +1,5 @@
 package Control;
 
-import Extra.Utils;
 import Model.Constants.ConsumableItems;
 import Model.Constants.EquipableItems;
 import Model.Hero;
@@ -22,21 +21,37 @@ public final class ItemSelection {
 
     public static EquipableItems selectEquipableItem(Hero player) {
         SELECTABLE_EQUIPABLE_ITEMS.removeIf(player::hasItem);
-        printItemsOptions(SELECTABLE_EQUIPABLE_ITEMS);
+        printConsumableItemsOptions();
         return SELECTABLE_EQUIPABLE_ITEMS.get(
                 InputController.selectValidIndex(SELECTABLE_EQUIPABLE_ITEMS, null)
         );
     }
 
+    private static void printEquipableItemsOptions() {
+        int index = 0;
+        for (EquipableItems item : ItemSelection.SELECTABLE_EQUIPABLE_ITEMS) {
+            System.out.printf("%d\t%s (%s) F: %d R: %d A: %d\n", index, item, item.DESCRIPTION, item.MODIFIERS.getStrengh(), item.MODIFIERS.getResistence(), item.MODIFIERS.getAgility());
+            index++;
+        }
+    }
+
     public static ConsumableItems selectConsumableItem() {
-        printItemsOptions(SELECTABLE_CONSUMABLE_ITEMS);
+        printConsumableItemsOptions();
         return SELECTABLE_CONSUMABLE_ITEMS.get(
                 InputController.selectValidIndex(SELECTABLE_CONSUMABLE_ITEMS, null)
         );
     }
 
-    private static void printItemsOptions(List<?> itemList) {
-        Utils.printListWithIndex(itemList);
+    private static void printConsumableItemsOptions() {
+        int index = 0;
+        for (ConsumableItems item : ItemSelection.SELECTABLE_CONSUMABLE_ITEMS) {
+            System.out.printf("%d\t%s (%s) Sanidade: %d\n", index, item, item.DESCRIPTION, item.EFFECT);
+            index++;
+        }
+    }
+
+    private static void printItems(List<ConsumableItems> list) {
+
     }
 
 }

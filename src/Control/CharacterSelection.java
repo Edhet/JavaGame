@@ -31,10 +31,10 @@ public final class CharacterSelection {
                     História: %s
                     Força: %d   	Resistência: %d     	Agilidade: %d
                     Abilidades: %s
+                    
                     """, character.NAME, character.STORY, character.STRENTGH, character.RESISTENCE, character.AGILITY,
                     Arrays.stream(character.ABILITIES).map(abilities -> abilities.NAME).toList()
             );
-            System.out.println();
         }
     }
 }

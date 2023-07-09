@@ -1,5 +1,6 @@
 package Control;
 
+import Model.Attack;
 import Model.Constants.Abilities;
 import Model.Constants.Characters;
 import Model.Constants.ConsumableItems;
@@ -62,7 +63,7 @@ public final class SingletonGameController {
     private PossibleAction playerTurn(Hero player, Enemy enemy) {
         PossibleAction action = ActionSelection.chooseAction();
         switch (action) {
-            case HABI -> player.useAbility(ActionSelection.chooseAbility(player), enemy);
+            case HABI -> printAttackResult(player.useAbility(ActionSelection.chooseAbility(player), enemy));
             case ITEM -> player.useItem(ActionSelection.chooseItem(player));
             case INFO -> ActionSelection.printPersonInformation(player, enemy);
         }
@@ -73,6 +74,10 @@ public final class SingletonGameController {
         this.enemy.calculateStance(player);
         Abilities chosenAbility = enemy.chooseAbility();
         System.out.println(enemy.getName() + " usou " + chosenAbility);
-        this.enemy.useAbility(chosenAbility, player);
+        printAttackResult(this.enemy.useAbility(chosenAbility, player));
+    }
+
+    private void printAttackResult(Attack result) {
+        System.out.println((result == Attack.HIT) ? "Acertou ataque" : "Errou ataque");
     }
 }

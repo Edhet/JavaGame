@@ -45,7 +45,7 @@ public class Hero extends Person implements Inventory {
         if (optionalItem.isEmpty())
             consumableItems.add(item);
         else
-            optionalItem.get().addItem(item.DEFAULT_ADD_AMOUNT);
+            optionalItem.get().addItem();
     }
 
     @Override

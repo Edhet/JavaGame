@@ -1,5 +1,9 @@
 package Control;
 
+import Control.Selections.ActionSelection;
+import Control.Selections.CharacterSelection;
+import Control.Selections.ItemSelection;
+import Control.Selections.PossibleAction;
 import Model.Attack;
 import Model.Constants.Abilities;
 import Model.Constants.Characters;
@@ -52,9 +56,9 @@ public final class SingletonGameController {
 
     private void printBattleStatus() {
         System.out.printf("""
-                %s \tSanidade: %d
-                %s \tSanidade: %d
-                """,
+                        %s \tSanidade: %d
+                        %s \tSanidade: %d
+                        """,
                 player.getName(), player.getSanity(),
                 enemy.getName(), enemy.getSanity()
         );
@@ -64,7 +68,14 @@ public final class SingletonGameController {
         PossibleAction action = ActionSelection.chooseAction();
         switch (action) {
             case HABI -> printAttackResult(player.useAbility(ActionSelection.chooseAbility(player), enemy));
-            case ITEM -> player.useItem(ActionSelection.chooseItem(player));
+            case ITEM -> {
+                try {
+                    player.useItem(ActionSelection.chooseItem(player));
+                } catch (IllegalStateException e) {
+                    System.out.println("Você não possui nenhuma quantidade desse item");
+                    action = playerTurn(player, enemy);
+                }
+            }
             case INFO -> ActionSelection.printPersonInformation(player, enemy);
         }
         return action;

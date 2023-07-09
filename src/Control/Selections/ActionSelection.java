@@ -1,5 +1,6 @@
-package Control;
+package Control.Selections;
 
+import Control.InputController;
 import Model.Constants.Abilities;
 import Model.Constants.ConsumableItems;
 import Model.Enemy;
@@ -40,7 +41,7 @@ public final class ActionSelection {
     private static void printItems(List<ConsumableItems> list) {
         int index = 0;
         for (ConsumableItems item : list) {
-            System.out.printf("%d\t%s (%s) Sanidade: %d [%d]\n", index, item, item.DESCRIPTION, item.EFFECT, item.getAmount());
+            System.out.printf("%d\t%s (%s) Mudança de Sanidade: %s [%d]\n", index, item, item.DESCRIPTION, (item.EFFECT == null) ? "Aleatório" : item.EFFECT, item.getAmount());
             index++;
         }
     }

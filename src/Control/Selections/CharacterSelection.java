@@ -1,5 +1,6 @@
-package Control;
+package Control.Selections;
 
+import Control.InputController;
 import Model.Constants.Characters;
 import Model.Hero;
 import Model.PersonFactory;

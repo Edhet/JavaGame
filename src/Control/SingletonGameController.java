@@ -33,7 +33,13 @@ public final class SingletonGameController {
     public void startGame() {
         for (Characters enemy : BATTLE_SEQUENCE) {
             showStore();
-            startBattle(enemy);
+            boolean wonBattle = startBattle(enemy);
+
+            if (!wonBattle) {
+                System.out.println("Derrota!");
+                break;
+            }
+            System.out.println("Vitória!");
         }
     }
 

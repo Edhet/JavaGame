@@ -1,5 +1,6 @@
 package Control;
 
+import Extra.Utils;
 import Model.Constants.ConsumableItems;
 import Model.Constants.EquipableItems;
 import Model.Hero;
@@ -35,12 +36,7 @@ public final class ItemSelection {
     }
 
     private static void printItemsOptions(List<?> itemList) {
-        System.out.println("Selecione um item para sua próxima batalha...");
-        int index = 0;
-        for (Object item : itemList) {
-            System.out.printf("%d\t%s\n", index, item);
-            index++;
-        }
+        Utils.printListWithIndex(itemList);
     }
 
 }

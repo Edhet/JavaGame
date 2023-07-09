@@ -18,6 +18,14 @@ public final class Utils {
         return getFromList(searchObj, list).isPresent();
     }
 
+    public static void printListWithIndex(List<?> list) {
+        int index = 0;
+        for (Object obj : list) {
+            System.out.printf("%d\t%s\n", index, obj);
+            index++;
+        }
+    }
+
     public static <T extends Comparable<T>> T clamp(T value, T min, T max) {
         if (value.compareTo(min) < 0)
             return min;

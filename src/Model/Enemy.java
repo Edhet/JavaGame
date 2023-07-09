@@ -31,7 +31,7 @@ public class Enemy extends Person {
         }
     }
 
-    public void calculateStance(Person enemy) {
+    public void calculateStance(Person player) {
         final int BIG_IMPACT = 4, MEDIUM_IMPACT = 2, SMALL_IMPACT = 1;
 
         int boldnessValue = 0;
@@ -41,10 +41,10 @@ public class Enemy extends Person {
         boldnessValue += (this.attributes.getResistence() > 3) ? SMALL_IMPACT : -MEDIUM_IMPACT;
         boldnessValue += (this.attributes.getStrengh() > 5) ? BIG_IMPACT : -SMALL_IMPACT;
 
-        boldnessValue += (enemy.sanity < 5) ? MEDIUM_IMPACT : -BIG_IMPACT;
-        boldnessValue += (enemy.attributes.getAgility() < 5) ? BIG_IMPACT : -SMALL_IMPACT;
-        boldnessValue += (enemy.attributes.getResistence() < 3) ? SMALL_IMPACT : -MEDIUM_IMPACT;
-        boldnessValue += (enemy.attributes.getStrengh() < 5) ? BIG_IMPACT : -SMALL_IMPACT;
+        boldnessValue += (player.sanity < 5) ? SMALL_IMPACT : -BIG_IMPACT;
+        boldnessValue += (player.attributes.getAgility() < 5) ? BIG_IMPACT : -SMALL_IMPACT;
+        boldnessValue += (player.attributes.getResistence() < 3) ? SMALL_IMPACT : -MEDIUM_IMPACT;
+        boldnessValue += (player.attributes.getStrengh() < 5) ? BIG_IMPACT : -SMALL_IMPACT;
 
         this.actionStance = (boldnessValue > 0) ? Stance.BOLD : Stance.CAUTELOUS;
     }

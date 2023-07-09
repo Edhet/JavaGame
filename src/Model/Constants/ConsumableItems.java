@@ -44,6 +44,6 @@ public enum ConsumableItems {
 
     @Override
     public String toString() {
-        return NAME+" ["+amount+"]";
+        return NAME;
     }
 }

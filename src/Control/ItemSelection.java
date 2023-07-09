@@ -27,7 +27,7 @@ public final class ItemSelection {
         );
     }
 
-    public static ConsumableItems selectConsumableItem(Hero player) {
+    public static ConsumableItems selectConsumableItem() {
         printItemsOptions(SELECTABLE_CONSUMABLE_ITEMS);
         return SELECTABLE_CONSUMABLE_ITEMS.get(
                 InputController.selectValidIndex(SELECTABLE_CONSUMABLE_ITEMS, null)

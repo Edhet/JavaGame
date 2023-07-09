@@ -1,8 +1,8 @@
 package Control;
 
-import Battle.Constants.Characters;
-import Battle.Hero;
-import Battle.PersonFactory;
+import Model.Constants.Characters;
+import Model.Hero;
+import Model.PersonFactory;
 
 import java.util.*;
 

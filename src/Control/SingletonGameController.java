@@ -1,7 +1,8 @@
 package Control;
 
-import Battle.Enemy;
-import Battle.Hero;
+import Model.Constants.ConsumableItems;
+import Model.Enemy;
+import Model.Hero;
 
 public final class SingletonGameController {
     private static SingletonGameController instance;
@@ -18,7 +19,8 @@ public final class SingletonGameController {
     // TODO: fazer uma classe para controlar a loja, controlar a luta e controlar/qual inimigo e controlar as historias
     private SingletonGameController() {
         player = CharacterSelection.selectCharacter();
-        player.equipItem(ItemSelection.selectEquipableItem(player));
-        System.out.println();
+        player.addItem(ConsumableItems.EMPTYBOX);
+
+
     }
 }

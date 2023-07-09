@@ -1,4 +1,4 @@
-package Battle.Constants;
+package Model.Constants;
 
 public enum Characters {
 

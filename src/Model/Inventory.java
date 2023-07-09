@@ -1,7 +1,7 @@
-package Battle;
+package Model;
 
-import Battle.Constants.ConsumableItems;
-import Battle.Constants.EquipableItems;
+import Model.Constants.ConsumableItems;
+import Model.Constants.EquipableItems;
 
 import java.util.List;
 

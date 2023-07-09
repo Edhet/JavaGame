@@ -1,8 +1,8 @@
-package Battle;
+package Model;
 
-import Battle.Constants.Abilities;
-import Battle.Constants.ConsumableItems;
-import Battle.Constants.EquipableItems;
+import Model.Constants.Abilities;
+import Model.Constants.ConsumableItems;
+import Model.Constants.EquipableItems;
 import Extra.Utils;
 
 import java.util.List;

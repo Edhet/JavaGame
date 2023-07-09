@@ -1,4 +1,4 @@
-package Battle.Constants;
+package Model.Constants;
 
 public enum Abilities {
     ATTACK("Ataque Básico", "Apenas um ataque básico.", 1, 0),

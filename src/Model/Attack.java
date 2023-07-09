@@ -1,4 +1,4 @@
-package Battle;
+package Model;
 
 public enum Attack {
     HIT,

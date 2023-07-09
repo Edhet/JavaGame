@@ -1,6 +1,6 @@
-package Battle;
+package Model;
 
-import Battle.Constants.Characters;
+import Model.Constants.Characters;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,6 +1,6 @@
-package Battle;
+package Model;
 
-import Battle.Constants.Abilities;
+import Model.Constants.Abilities;
 
 import java.util.ArrayList;
 import java.util.List;

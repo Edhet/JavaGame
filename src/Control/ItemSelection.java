@@ -1,8 +1,8 @@
 package Control;
 
-import Battle.Constants.ConsumableItems;
-import Battle.Constants.EquipableItems;
-import Battle.Hero;
+import Model.Constants.ConsumableItems;
+import Model.Constants.EquipableItems;
+import Model.Hero;
 
 import java.util.ArrayList;
 import java.util.Arrays;

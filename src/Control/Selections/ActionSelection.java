@@ -56,7 +56,7 @@ public final class ActionSelection {
         System.out.printf("""
                 %s \tSanidade: %d
                 %s
-                Abilidades: %s
+                Habilidades: %s
                 Equipamentos: %s
                 Items: %s
                 

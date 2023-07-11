@@ -36,8 +36,10 @@ public final class SingletonGameController {
             boolean wonBattle = startBattle(enemy);
 
             if (!wonBattle) {
-                System.out.println("\nSua sanidade extinguiu-se à própria natureza inóspita. Os inimigos percebem tal fraqueza e utilizam dela para te controlar. Você não\n" +
-                        "foi capaz de mudar a dura e triste realidade.");
+                System.out.println("""
+
+                        Sua sanidade extinguiu-se à própria natureza inóspita. Os inimigos percebem tal fraqueza e utilizam dela para te controlar. Você não
+                        foi capaz de mudar a dura e triste realidade.""");
                 break;
             }
             System.out.println("\nVitória!");

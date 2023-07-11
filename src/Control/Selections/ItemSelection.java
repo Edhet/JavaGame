@@ -50,9 +50,4 @@ public final class ItemSelection {
             index++;
         }
     }
-
-    private static void printItems(List<ConsumableItems> list) {
-
-    }
-
 }

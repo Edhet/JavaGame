@@ -40,10 +40,14 @@ public final class SingletonGameController {
 
                         Sua sanidade extinguiu-se à própria natureza inóspita. Os inimigos percebem tal fraqueza e utilizam dela para te controlar. Você não
                         foi capaz de mudar a dura e triste realidade.""");
-                break;
+                return;
             }
             System.out.println("\nVitória!");
         }
+        System.out.println("""
+            
+            Após uma jornada repleta de frustrações, você finalmente derrota Lorde Graf. Sabendo que sua vingança finalmente fora alcançada, 
+            você encontra um momento de paz e alívio, sabendo que pôs um fim a toda essa crueldade.""");
     }
 
     private void showStore() {

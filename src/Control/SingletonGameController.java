@@ -36,16 +36,16 @@ public final class SingletonGameController {
             boolean wonBattle = startBattle(enemy);
 
             if (!wonBattle) {
-                System.out.println("Sua sanidade extinguiu-se à própria natureza inóspita. Os inimigos percebem tal fraqueza e utilizam dela para te controlar. Você não\n" +
+                System.out.println("\nSua sanidade extinguiu-se à própria natureza inóspita. Os inimigos percebem tal fraqueza e utilizam dela para te controlar. Você não\n" +
                         "foi capaz de mudar a dura e triste realidade.");
                 break;
             }
-            System.out.println("Vitória!");
+            System.out.println("\nVitória!");
         }
     }
 
     private void showStore() {
-        System.out.println("Selecione um item para sua próxima batalha...");
+        System.out.println("\nSelecione um item de cada para sua próxima batalha...\n");
         player.equipItem(ItemSelection.selectEquipableItem(player));
         player.addItem(ItemSelection.selectConsumableItem());
     }

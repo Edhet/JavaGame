@@ -31,7 +31,7 @@ public final class ItemSelection {
     private static void printEquipableItemsOptions() {
         int index = 0;
         for (EquipableItems item : ItemSelection.SELECTABLE_EQUIPABLE_ITEMS) {
-            System.out.printf("%d\t%s (%s) Modificadores: [F: %d R: %d A: %d]\n", index, item, item.DESCRIPTION, item.MODIFIERS.getStrengh(), item.MODIFIERS.getResistence(), item.MODIFIERS.getAgility());
+            System.out.printf("%d\t%s (%s) Efeitos do Item: [Força: %d Resistência: %d Agilidade: %d]\n", index, item, item.DESCRIPTION, item.MODIFIERS.getStrengh(), item.MODIFIERS.getResistence(), item.MODIFIERS.getAgility());
             index++;
         }
     }
@@ -46,7 +46,7 @@ public final class ItemSelection {
     private static void printConsumableItemsOptions() {
         int index = 0;
         for (ConsumableItems item : ItemSelection.SELECTABLE_CONSUMABLE_ITEMS) {
-            System.out.printf("%d\t%s (%s) Mudança de Sanidade: %d\n", index, item, item.DESCRIPTION, item.EFFECT);
+            System.out.printf("%d\t%s (%s) Ganho de Sanidade: %d\n", index, item, item.DESCRIPTION, item.EFFECT);
             index++;
         }
     }

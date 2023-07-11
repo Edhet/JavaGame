@@ -27,22 +27,22 @@ public enum Characters {
             new Abilities[]{Abilities.ATTACK, Abilities.PUNCH, Abilities.EGO}
     ),
 
-    THORFFY(false, "Thorffy, o Guardião de Sétiah", "Aria deve derrotar Thorffy por meio de um confronto direto para conseguir avançar e entrar\n" +
-            "na Torre de Lorde Graf.",
+    THORFFY(false, "Thorffy, o Guardião de Sétiah", "\nVocê deve derrotar Thorffy por meio de um confronto direto para conseguir avançar e entrar\n" +
+            "na Torre de Lorde Graf.\n",
             10,
             1, 2, 2,
             new Abilities[]{Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.SHOUT}
 
     ),
 
-    ZIGG(false, "Zigg, o Lacaio de Graf", "Para Aria chegar à sala de Lorde Graf, primeiro deve derrotar o seu criado mais leal, Zigg.",
+    ZIGG(false, "Zigg, o Lacaio de Graf", "\nPara você chegar à sala de Lorde Graf, primeiro deve derrotar o seu criado mais leal, Zigg.\n",
             10,
             2, 3, 3,
             new Abilities[]{Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.FEAR}
 
     ),
 
-    LORDGRAF(false, "Lorde Graf", "Aria precisa colocar um fim à tirania de Lorde Graf, logo deve aniquilar o seu arqui-inimigo.",
+    LORDGRAF(false, "Lorde Graf", "\nVocê precisa colocar um fim à tirania de Lorde Graf, logo deve aniquilar o seu arqui-inimigo.\n",
             10,
             3, 4, 4,
             new Abilities[]{Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.MANIPULATION}

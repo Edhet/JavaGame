@@ -37,14 +37,10 @@ public class Enemy extends Person {
         int boldnessValue = 0;
 
         boldnessValue += (this.sanity > 5) ? MEDIUM_IMPACT : -BIG_IMPACT;
-        boldnessValue += (this.attributes.getAgility() > 5) ? BIG_IMPACT : -SMALL_IMPACT;
-        boldnessValue += (this.attributes.getResistence() > 3) ? SMALL_IMPACT : -MEDIUM_IMPACT;
-        boldnessValue += (this.attributes.getStrengh() > 5) ? BIG_IMPACT : -SMALL_IMPACT;
-
         boldnessValue += (player.sanity < 5) ? SMALL_IMPACT : -BIG_IMPACT;
-        boldnessValue += (player.attributes.getAgility() < 5) ? BIG_IMPACT : -SMALL_IMPACT;
-        boldnessValue += (player.attributes.getResistence() < 3) ? SMALL_IMPACT : -MEDIUM_IMPACT;
-        boldnessValue += (player.attributes.getStrengh() < 5) ? BIG_IMPACT : -SMALL_IMPACT;
+        boldnessValue += (this.attributes.getAgility() > player.attributes.getAgility()) ? BIG_IMPACT : -SMALL_IMPACT;
+        boldnessValue += (this.attributes.getResistence() > player.attributes.getResistence()) ? SMALL_IMPACT : -MEDIUM_IMPACT;
+        boldnessValue += (this.attributes.getStrengh() > player.attributes.getStrengh()) ? BIG_IMPACT : -SMALL_IMPACT;
 
         this.actionStance = (boldnessValue > 0) ? Stance.BOLD : Stance.CAUTELOUS;
     }

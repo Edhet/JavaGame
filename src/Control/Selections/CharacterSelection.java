@@ -28,10 +28,14 @@ public final class CharacterSelection {
         System.out.println("Digite o primeiro nome do personagem para escolhê-lo");
         for (Characters character : SELECTABLE_PLAYABLE_CHARACTERS.values()) {
             System.out.printf("""
+                    
                     Nome: %s
+                    
                     História: %s
+                    
                     Força: %d   	Resistência: %d     	Agilidade: %d
-                    Abilidades: %s
+                    
+                    Habilidades: %s
                     
                     """, character.NAME, character.STORY, character.STRENTGH, character.RESISTENCE, character.AGILITY,
                     Arrays.stream(character.ABILITIES).map(abilities -> abilities.NAME).toList()

@@ -31,21 +31,21 @@ public enum Characters {
             "na Torre de Lorde Graf.\n",
             10,
             1, 2, 2,
-            new Abilities[]{Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.SHOUT}
+            new Abilities[]{Abilities.ATTACK, Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.SHOUT}
 
     ),
 
     ZIGG(false, "Zigg, o Lacaio de Graf", "\nPara você chegar à sala de Lorde Graf, primeiro deve derrotar o seu criado mais leal, Zigg.\n",
             10,
             2, 3, 3,
-            new Abilities[]{Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.FEAR}
+            new Abilities[]{Abilities.ATTACK, Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.FEAR}
 
     ),
 
     LORDGRAF(false, "Lorde Graf", "\nVocê precisa colocar um fim à tirania de Lorde Graf, logo deve aniquilar o seu arqui-inimigo.\n",
             10,
             3, 4, 4,
-            new Abilities[]{Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.MANIPULATION}
+            new Abilities[]{Abilities.ATTACK, Abilities.MALICIOUSATTACK, Abilities.BADHEALING, Abilities.MANIPULATION}
     );
 
     public final boolean IS_PLAYABLE;

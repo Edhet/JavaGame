@@ -54,8 +54,8 @@ public class Hero extends Person implements Inventory {
         if (optionalItem.isEmpty())
             throw new IllegalStateException("There is no such item on hero inventory");
 
-        changeSanity(Objects.requireNonNullElseGet(item.EFFECT, () -> new Random().nextInt(-5, 5)));
         optionalItem.get().consumeItem();
+        changeSanity(Objects.requireNonNullElseGet(item.EFFECT, () -> new Random().nextInt(-5, 5)));
     }
 
     @Override

@@ -24,7 +24,7 @@ public enum ConsumableItems {
         return amount;
     }
 
-    public void addItem() throws IllegalStateException {
+    public void addItem() {
         this.amount += DEFAULT_ADD_AMOUNT;
     }
 

@@ -36,7 +36,7 @@ public final class InputController {
 
         do {
             try {
-                userInput = Integer.parseInt(SCANNER.nextLine().trim().toUpperCase());
+                userInput = Integer.parseInt(SCANNER.nextLine().trim());
                 validIndex = userInput >= 0 && userInput <= options.size() - 1;
             } catch (NumberFormatException ignored) { }
 

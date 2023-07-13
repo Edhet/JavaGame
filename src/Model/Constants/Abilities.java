@@ -2,7 +2,7 @@ package Model.Constants;
 
 public enum Abilities {
     ATTACK("Ataque Básico", "Apenas um ataque básico.", 1, 0),
-    PUNCH("Soco Reforçado", "Uma mistura de técnica e destreza.", 2, 0),
+    PUNCH("Soco Reforçado", "Uma mistura de técnica e destreza.", 2, 1),
     GRACE("Graça dos Doom", "Capacidade de controlar orbes energizadas. Há um desgaste mental nas manipulações, ocasionando perda de sanidade.", 4, 2),
     EGO("Ego", "Um sentimento selado capaz de aniquilar seus inimigos e, à medida em que o poder é utilizado, perde-se sanidade.", 4, 2),
 
